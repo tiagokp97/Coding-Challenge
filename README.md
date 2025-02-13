@@ -106,8 +106,11 @@ Example:
 Bonus Features (Stretch Goals):
 
 💡 Add live edge highlighting (the test agent visually displays whats happening on the canvas)
+
 💡 Make the LLM configurable
+
 💡 Store test conversations
+
 💡 Generic tool calls (able to add tools/functions to each state that can be called by the ai and do web requests)
 
 ### Example (from RetellAI)
