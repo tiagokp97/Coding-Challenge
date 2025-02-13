@@ -103,7 +103,7 @@ Example:
 ✅ Reset button for clearing test conversations
 
 
-Bonus Features (Stretch Goals):
+### Bonus Features (Stretch Goals):
 
 💡 Add live edge highlighting (the test agent visually displays whats happening on the canvas)
 
