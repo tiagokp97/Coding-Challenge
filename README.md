@@ -76,6 +76,13 @@ Must-Have Features:
 ✅ State-specific prompts
 ✅ State transitions (edges)
 ✅ Test mode that displays AI responses as well as state transitions
+  ✅ Remember, with tool calls the AI might need to produce a few responses in a row (ie. agent transitions to another state and then responds to the question)
+    Example: 
+      - User: Hey, can you transfer me to a human?
+      - Agent: [Tool call: transfer_to_a_human]
+      - Agent: [Tool call result: success]
+      - Agent: Yes, I'm transferring you now! Thank you
+      
 ✅ Persistent storage for agents (PostgreSQL)
 ✅ Reset button for clearing test conversations
 
