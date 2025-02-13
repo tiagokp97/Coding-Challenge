@@ -56,6 +56,8 @@ Drizzle (for database ORM)
 
 Any library you woud like for the drag and drop canvas.
 
+Any library you want to handle the AI conversation, either build a custom one or use something like LangGraph or another lib.
+
 OpenAI API (or another LLM) for processing AI responses
 
 Getting Started
@@ -72,25 +74,41 @@ Getting Started
 Must-Have Features:
 
 ✅ Drag-and-drop state management canvas
+
 ✅ Global prompt
+
 ✅ State-specific prompts
+
 ✅ State transitions (edges)
-✅ Test mode that displays AI responses as well as state transitions
-  ✅ Remember, with tool calls the AI might need to produce a few responses in a row (ie. agent transitions to another state and then responds to the question)
-    Example: 
+
+✅ Test mode that displays AI responses as well as state transitions. 
+
+Remember, with tool calls the AI might need to produce a few responses in a row (ie. agent transitions to another state and then responds to the question)
+
+```
+Example:
       - User: Hey, can you transfer me to a human?
-      - Agent: [Tool call: transfer_to_a_human]
-      - Agent: [Tool call result: success]
-      - Agent: Yes, I'm transferring you now! Thank you
       
+      - Agent: [Tool call: transfer_to_a_human]
+      
+      - Agent: [Tool call result: success]
+      
+      - Agent: Yes, I'm transferring you now! Thank you
+```
+
+✅ You do not need to build generic tool calls, however, you might decide to implement the state transitions as tool calls (ie a tool called "transition_state")
+
 ✅ Persistent storage for agents (PostgreSQL)
+
 ✅ Reset button for clearing test conversations
+
 
 Bonus Features (Stretch Goals):
 
 💡 Add live edge highlighting (the test agent visually displays whats happening on the canvas)
 💡 Make the LLM configurable
 💡 Store test conversations
+💡 Generic tool calls (able to add tools/functions to each state that can be called by the ai and do web requests)
 
 ### Example (from RetellAI)
 <img width="1509" alt="Screenshot 2025-02-13 at 9 09 02 AM" src="https://github.com/user-attachments/assets/d6cd898b-6e4d-4e87-a615-5b9bf8d9d4fd" />
