@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { db } from "@/db/drizzle";
 import { states, edges } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, inArray } from "drizzle-orm";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -35,7 +35,7 @@ export async function GET(request: Request) {
       if (!transitionsMap.has(transition.fromStateId)) {
         transitionsMap.set(transition.fromStateId, []);
       }
-      const transitionsArray = transitionsMap.get(transition.fromStateId);
+      const transitionsArray = transitionsMap.get(transition.fromStateId) || [];
       
       const targetState = agentStates.find((s) => s.id === transition.toStateId);
       
@@ -44,6 +44,8 @@ export async function GET(request: Request) {
           t.condition === transition.condition &&
           t.nextState === transition.toStateId
       );
+
+
       if (!alreadyExists) {
         transitionsArray.push({
           condition: transition.condition,
@@ -91,7 +93,7 @@ export async function POST(request: Request) {
       const targetStates = await db
         .select({ id: states.id, name: states.name })
         .from(states)
-        .where(Array(states.id, toStateIds));
+        .where(inArray(states.id, toStateIds));
 
  
       const stateNameMap = Object.fromEntries(
