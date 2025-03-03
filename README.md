@@ -146,3 +146,8 @@ With this prompt, whenever a user asks about the weather in a city, the agent wi
 
 This README will be updated as new features are added. Let me know if you need any additional technical details, Mr. Pesch! 🚀
 
+
+### Test the application in the link bellow: 
+
+https://super-call-zjpihqozl-tiagokp97s-projects.vercel.app/
+
