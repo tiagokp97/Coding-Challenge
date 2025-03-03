@@ -71,7 +71,6 @@ export async function POST(request: Request) {
   try {
     const newState = await request.json();
 
-    console.log("newState", newState);
 
     if (!newState.name || !newState.position) {
       return NextResponse.json({ error: "Ivalid name or position" }, { status: 400 });

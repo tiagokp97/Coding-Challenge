@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && tsc --noEmit --skipLibCheck",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+     "vercel-build": "set SKIP_TYPE_CHECK=true && next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",

@@ -66,7 +66,11 @@ export async function POST(request: Request) {
 
     if (existingConversations.length > 0) {
       const conversation = existingConversations[0];
-      const updatedMessages = [...conversation.messages, ...messages];
+      const updatedMessages = [
+  ...(Array.isArray(conversation.messages) ? conversation.messages : []),
+  ...messages
+];
+
       await db
         .update(conversations)
         .set({ messages: updatedMessages })

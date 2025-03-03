@@ -133,7 +133,6 @@ const StateManagementPanel: React.FC<StateManagementPanelProps> = ({
             prompt: localPrompt,
             transitions: localConditions,
         };
-        console.log("Atualizando estado (onSubmit):", newValues);
         debouncedUpdate.current(selectedState.id, newValues);
     };
 

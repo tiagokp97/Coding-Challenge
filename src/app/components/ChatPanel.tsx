@@ -24,6 +24,10 @@ interface ChatPanelProps {
     setCurrentConversationId: (id: number | null) => void;
 
 }
+interface Conversation {
+    id: number;
+    closed: boolean;
+}
 
 const ChatPanel: React.FC<ChatPanelProps> = ({
     messages,
@@ -42,7 +46,6 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
     const [activeTab, setActiveTab] = useState<"chat" | "history">("chat");
     const [highlight, setHighlight] = useState(false);
 
-    console.log('messages', messages)
 
     const states = useSelector((state: RootState) => state.agents.states);
 
@@ -56,7 +59,6 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
                 console.error("Error fetching history");
                 return [];
             }
-            console.log('eu passei aqui', activeConv)
         } catch (error) {
             console.error("Server error:", error);
             return [];
@@ -68,7 +70,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
             fetchConversationHistory(selectedAgentId).then((history) => {
                 setConversationHistory(history);
 
-                const activeConv = history.find((conv) => !conv.closed);
+                const activeConv = history.find((conv: Conversation) => !conv.closed);
                 setCurrentConversationId(activeConv ? activeConv.id : null);
             });
         }
@@ -111,7 +113,6 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
                         setCurrentConversationId(null);
                         handleResetChat(conversationId);
                     }
-                    console.log("Conversation reseted.");
                 } else {
                     console.error("Error reseting conversation");
                 }
@@ -129,7 +130,6 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
                     method: "DELETE",
                 });
                 if (response.ok) {
-                    console.log("Conversation deleted.");
 
                     setConversationHistory(prev =>
                         prev.filter(conv => conv.id !== conversationId)
