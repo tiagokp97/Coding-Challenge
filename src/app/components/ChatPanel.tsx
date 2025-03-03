@@ -251,7 +251,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
                 </div>
             ) : (
                 <section className="flex flex-col flex-1">
-                    <h4 className="text-md font-semibold text-gray-700 mb-2">
+                    <h4 className="text-md font-semibold text-gray-700 mb-2 ">
                         Conversation History
                     </h4>
                     {Object.entries(groupedHistory).map(([date, convs]) => (
@@ -259,7 +259,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
                             <Accordion type="single" collapsible>
                                 <AccordionItem value="item-1">
                                     <AccordionTrigger>Day: {date}</AccordionTrigger>
-                                    <AccordionContent className="overflow-y-auto max-h-[74vh]">
+                                    <AccordionContent className="overflow-y-auto max-h-[74vh] break-words whitespace-pre-wrap">
                                         {convs.map((conv, idx) => (
                                             <div
                                                 key={conv.id || idx}

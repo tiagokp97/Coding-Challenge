@@ -304,7 +304,7 @@ const StateManagementPanel: React.FC<StateManagementPanelProps> = ({
                                     </div>
 
                                     <div className="mb-4">
-                                        <Label className="mb-1 block">Agent Name:</Label>
+                                        <Label className="mb-1 block">Select Prompt Model:</Label>
                                         <Select
                                             value={selectedModel}
                                             onValueChange={(value) => setSelectedModel(value)}
