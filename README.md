@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to **Super Call AI**! This project is a **state-based AI agent builder**, where users can create and configure interactive conversation flows using a **drag-and-drop system**. The application allows defining global prompts, specific states, transitions between states, and testing agents in real time.
+Welcome to **Super Call AI**! This project is a **state-based AI agent builder**, where users can create and configure interactive conversation flows using a **drag-and-drop system**. The application allows defining global prompts, specific states, transitions between states, and testing agents in real time. Using NLU to state interpreation and handling state changes.
 
 ## Technologies Used
 
@@ -17,6 +17,13 @@ Welcome to **Super Call AI**! This project is a **state-based AI agent builder**
 - **React Hook Form** – Form management
 - **Lodash** – Input debounce handling
 - **Redux** – Global state management
+
+
+The system employs a Natural Language Understanding (NLU) model to interpret nodes and manage state transitions. Since the accuracy of state transitions depends on how well the model understands user inputs, it is recommended to use a high-precision ChatGPT model (e.g., GPT-4 or GPT-4o) for improved consistency in conversations.
+
+Insight: An optimization approach could be assigning different models to different nodes. For example, a node responsible for greetings or farewells could use a simpler model, while more complex decision-making nodes could use a high-precision model. This would optimize token processing and reduce costs.
+The system employs a Natural Language Understanding (NLU) model to interpret nodes and manage state transitions. Since the accuracy of state transitions depends on how well the model understands user inputs, it is recommended to use a high-precision ChatGPT model (e.g., GPT-4 or GPT-4o) for improved consistency in conversations.
+
 
 ## Main Features
 
@@ -38,7 +45,7 @@ Following the image from left to right, we can track the flow:
   - Automatic conversation termination after inactivity is not yet implemented.
 - Only **one Starting and one Ending State** can be set at a time.
 
-💡 **Insight:** Nodes that have been visited could have a unique styling to visually indicate the conversation path.
+**Insight:** Nodes that have been visited could have a unique styling to visually indicate the conversation path.
 
 ---
 
@@ -126,7 +133,7 @@ Based on the agent’s global prompt, generic tool calls can be executed. In thi
 
 With this prompt, whenever a user asks about the weather in a city, the agent will fetch and return the current weather conditions.
 
-💡 **Note:** This is a generic tool call system and can be expanded to integrate with other APIs.
+ **Note:** This is a generic tool call system and can be expanded to integrate with other APIs.
 
 ---
 
