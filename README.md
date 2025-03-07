@@ -149,5 +149,5 @@ This README will be updated as new features are added. Let me know if you need a
 
 ### Test the application in the link bellow: 
 
-https://super-call-zjpihqozl-tiagokp97s-projects.vercel.app/
+[https://super-call-zjpihqozl-tiagokp97s-projects.vercel.app/](https://super-call-ai.vercel.app/)
 
